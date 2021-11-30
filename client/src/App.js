@@ -19,6 +19,7 @@ import AdminRoute from './components/AdminRoute';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import orderListScreen from './screens/orderListScreen';
+import maccabi from './images/maccabi.png';
 
 function App() {
 
@@ -38,6 +39,8 @@ function App() {
       <header className="row">
         <div>
     <Link className="brand" to ="/">Maccabi TLV</Link>
+    <Link className="brand" to ="/"><img src={maccabi} height="30px" width="30px"></img></Link>
+    
 </div>
 <div>
   <Link to="/cart">Cart
