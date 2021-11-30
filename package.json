@@ -28,11 +28,6 @@
   "engines": {
     "node": "12.4.0",
     "npm": "6.9.0"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
- ]
+  }
+ 
 }
