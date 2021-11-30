@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
 import { signin } from '../actions/userActions';
+import CheckoutSteps from '../components/CheckoutSteps';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
@@ -32,6 +33,7 @@ function SigninScreen(props) {
 
     return (
         <div>
+            <CheckoutSteps step1></CheckoutSteps>
           <form className="form" onSubmit={submitHandler}>
                 <div>
                     <h1>Sign in</h1>

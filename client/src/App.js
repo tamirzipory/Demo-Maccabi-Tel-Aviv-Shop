@@ -14,6 +14,11 @@ import OrderScreen from './screens/OrderScreen';
 import orderHistoryScreen from './screens/orderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import PrivateRoute from './components/PrivateRoute';
+import Trivia from './screens/Trivia';
+import AdminRoute from './components/AdminRoute';
+import ProductListScreen from './screens/ProductListScreen';
+import ProductEditScreen from './screens/ProductEditScreen';
+import orderListScreen from './screens/orderListScreen';
 
 function App() {
 
@@ -41,6 +46,8 @@ function App() {
   )}
   </Link>
 
+      
+
   { userInfo? (
      <div className="dropdown">
      <Link to="#">{userInfo.name} 
@@ -53,6 +60,11 @@ function App() {
        <li>
          <Link to="/orderhistory">Order History</Link>
        </li>
+       
+       <li>
+         <Link to="/game">game</Link>
+         </li>
+
        <Link to="#signout" onClick={signoutHandler}>
          Sign out
        </Link>
@@ -63,14 +75,41 @@ function App() {
      <Link to="/signin">Sign in</Link>
    )}
 
+    {userInfo && userInfo.isAdmin && (
+      <div className="dropdown">
+        <Link to="#admin">
+          Admin <i className="fa fa-caret-down"></i>
+        </Link>
+        <ul className="dropdown-content">
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/Productlist">Products</Link>
+          </li>
+          <li>
+            <Link to="/orderlist">Orders</Link>
+          </li>
+          <li>
+            <Link to="/userlist">Users</Link>
+          </li>
 
+        </ul>
+      </div>
+    )}
 
 </div>
 
 </header>
 <main>
+  <Route path="/game" component={Trivia}></Route>
   <Route path="/cart/:id?" component={CartScreen}></Route>
-  <Route path="/product/:id" component={ProductScreen}></Route>
+  <Route path="/product/:id" component={ProductScreen} exact></Route>
+  <Route 
+  path="/product/:id/edit"
+  component={ProductEditScreen}
+  exact
+  ></Route>
   <Route path="/signin" component={SigninScreen}></Route>
   <Route path="/register" component={RegisterScreen}></Route>
   <Route path="/shipping" component={ShippingAddressScreen}></Route>
@@ -82,6 +121,14 @@ function App() {
   path="/profile" 
   component={ProfileScreen}
   ></PrivateRoute>
+  <AdminRoute
+  path="/productlist"
+  component={ProductListScreen}>
+  </AdminRoute>
+  <AdminRoute
+  path="/orderlist"
+  component={orderListScreen}>
+    </AdminRoute>
   <Route path="/" component={HomeScreen} exact ></Route>
 </main>
 <footer className="row center">

@@ -49,7 +49,8 @@ export const userDetailsReducer = (state = {loading: true}, action) =>{
             return {loading: false, user: action.payload};
         case USER_REGISTER_FAIL:
             return {loading: false, err: action.payload};
-        default: return state;
+        default: 
+            return state;
     }
 }
 
