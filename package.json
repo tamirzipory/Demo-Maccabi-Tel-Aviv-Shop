@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "heroku-postbuild": "npm run build",
+=======
+>>>>>>> 96f523e35a80662d9144c554a279a1f0e121e57d
     "build": "cd client && npm install && npm run build",
     "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
   },
