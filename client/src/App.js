@@ -20,6 +20,7 @@ import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import orderListScreen from './screens/orderListScreen';
 import maccabi from './images/maccabi.png';
+import UserListScreen from './screens/UserListScreen';
 
 function App() {
 
@@ -132,6 +133,7 @@ function App() {
   path="/orderlist"
   component={orderListScreen}>
     </AdminRoute>
+    <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
   <Route path="/" component={HomeScreen} exact ></Route>
 </main>
 <footer className="row center">
