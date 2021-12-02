@@ -7,12 +7,18 @@ function Trivia() {
     const [options, setOptions] = useState([]);
     const [disabled, setDisabled] = useState(true);
     return (
-        <div>
-            <div className="show">
-                <label>
-            soon
-            </label>
+        <div className="app-wrapper">
+            <div>
+                <div className="question-section-wrapper">
+                    <div className="question-count">
+                        question {current +1}
+                    </div>
+                    <div className="question">
+                        
+                    </div>
+                </div>
             </div>
+        
         </div>
     )
 }

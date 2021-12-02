@@ -5,7 +5,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
 
- function ProfileScreen() {
+ function ProfileScreen(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,6 +28,7 @@ import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
      if(!user){
          dispatch({type: USER_UPDATE_PROFILE_RESET});
          dispatch(detailsUser(userInfo._id));
+         
      }
      else{
          setName(user.name);

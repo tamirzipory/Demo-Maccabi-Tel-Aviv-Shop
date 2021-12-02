@@ -95,23 +95,31 @@ function ProductEditScreen(props) {
 
 
 
-    return (
+      return (
         <div>
-            <form className="form" onSubmit={submitHandler}>
-                <div>
-            <h1>Edit product</h1>
-                </div>
-                {loadingUpdate && <LoadingBox></LoadingBox>}
-                {errUpdate && <MessageBox variant="danger">{errUpdate}</MessageBox>}
-                {successUpdate && <MessageBox variant="success">success</MessageBox>}
-
-                {loading ? (
-                    <LoadingBox></LoadingBox>
-                ): err ? (
-                    <MessageBox variant="danger">{err}</MessageBox>
-                ):(
+     {loading ? (
+              <LoadingBox></LoadingBox>
+            ) : err ? (
+                <MessageBox variant="danger">{err}</MessageBox>
+              )
+            :(
+            
+             <form className="form" onSubmit={submitHandler}>
                     <div>
-                        <div>
+                        <h1>User profile</h1>
+                    </div>
+    
+                    {loadingUpdate && <LoadingBox></LoadingBox>}
+                {errUpdate && (
+                  <MessageBox variant="danger">{errUpdate}</MessageBox>
+                )}
+                {successUpdate && (
+                  <MessageBox variant="success">
+                    Profile Updated Successfully
+                  </MessageBox>
+                )}
+                   
+                   <div>
                             <label htmlFor="name">Name</label>
                             <input
                             id="name"
@@ -121,7 +129,8 @@ function ProductEditScreen(props) {
                             onChange={(e) => setName(e.target.value)}
                             ></input>
                         </div>
-
+    
+    
                         <div>
                             <label htmlFor="price">Price</label>
                             <input
@@ -132,7 +141,7 @@ function ProductEditScreen(props) {
                             onChange={(e) => setPrice(e.target.value)}
                             ></input>
                         </div>
-
+                
                         <div>
                             <label htmlFor="image">Image</label>
                             <input
@@ -143,20 +152,20 @@ function ProductEditScreen(props) {
                             onChange={(e) => setImage(e.target.value)}
                             ></input>
                         </div>
-
+    
                         <div>
-              <label htmlFor="imageFile">Image File</label>
-              <input
-                type="file"
-                id="imageFile"
-                label="Choose Image"
-                onChange={uploadFileHandler}
-              ></input>
-              {loadingUpload && <LoadingBox></LoadingBox>}
-              {errUpload && (
-                <MessageBox variant="danger">{errUpload}</MessageBox>
-              )}
-            </div>
+                        <label htmlFor="imageFile">Image File</label>
+                        <input
+                            type="file"
+                            id="imageFile"
+                            label="Choose Image"
+                            onChange={uploadFileHandler}
+                        ></input>
+                        {loadingUpload && <LoadingBox></LoadingBox>}
+                        {errUpload && (
+                            <MessageBox variant="danger">{errUpload}</MessageBox>
+                        )}
+                        </div>
 
                         <div>
                             <label htmlFor="category">Category</label>
@@ -190,7 +199,7 @@ function ProductEditScreen(props) {
                                 onChange={(e) => setCountInStock(e.target.value)}
                             ></input>
                         </div>
-                      
+
                         <div>
                                 <label htmlFor="description">Description</label>
                                 <textarea
@@ -203,18 +212,19 @@ function ProductEditScreen(props) {
                                 ></textarea>
                        </div>
 
-                        <div>
+                       <div>
                                 <label></label>
                                 <button className="primary" type="submit">
                                     Update
                                 </button>
                         </div>
-               </div>
-
-                )}
-            </form>
+    
+                
+              
+                </form>
+            )}
         </div>
-    )
+      );
 }
 
 export default ProductEditScreen
